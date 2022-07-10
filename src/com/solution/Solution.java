@@ -1,8 +1,10 @@
+package com.solution;
+
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 
-public class solution {
+public class Solution {
 
     public void dog(){
 

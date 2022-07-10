@@ -1,8 +1,10 @@
+package com.solution;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        new solution().no25083();
+        new Solution2().no14681();
 
     }
 
