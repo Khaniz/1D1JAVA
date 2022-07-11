@@ -2,7 +2,7 @@ package com.solution;
 
 import java.util.Scanner;
 
-public class Solution2 {
+public class Chapter2 {
 
     public void no1330() {
 

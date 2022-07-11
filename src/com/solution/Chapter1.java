@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 
-public class Solution {
+public class Chapter1 {
 
     public void dog(){
 
