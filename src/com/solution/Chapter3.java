@@ -330,6 +330,101 @@ public class Chapter3 {
     }
 
 
+    public void no10871() throws IOException{
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = 0;
+        int x = 0;
+
+        while (true) {
+            String T = br.readLine();
+            StringTokenizer tokenizer = new StringTokenizer(T);
+            n = Integer.parseInt(tokenizer.nextToken());
+            x = Integer.parseInt(tokenizer.nextToken());
+
+            if ((n >= 1 & n <= 10000) & (x>= 1 & x <= 10000)) {
+                break;
+            } else {
+                System.out.println("1보다 크거나 같고, 10,000보다 작거나 같은 정수를 스페이스로 구분하여 입력하세요");
+            }
+
+        }
+
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String A = br.readLine();;
+        StringTokenizer tokenizerA = new StringTokenizer(A);
+
+        int tempI = 0;
+        for(int i = 0; i<n; i++){
+            tempI = Integer.parseInt(tokenizerA.nextToken());
+            if(tempI < x){
+                bw.write(Integer.toString(tempI));
+                bw.write(" ");
+            }
+
+        }
+        bw.flush();
+        bw.close();
+
+    }
+
+    public void no10951() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int n = 0;
+        int x = 0;
+
+        while (true) {
+            String T = br.readLine();
+            StringTokenizer tokenizer = new StringTokenizer(T);
+            n = Integer.parseInt(tokenizer.nextToken());
+            x = Integer.parseInt(tokenizer.nextToken());
+
+            if ((n == 0) & (x == 0)) {
+                break;
+            } else {
+                if((n > 0) & (x < 10)){
+                    bw.write((n+x)+"\n");
+                }else {
+                    System.out.println("A는 0보다 크고, B는 10 작은 정수를 스페이스로 구분하여 입력하세요");
+                }
+            }
+
+        }
+        bw.flush();
+        bw.close();
+    }
+
+    public void no1110() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String n = br.readLine();
+        String tempA = "";
+        int cnt = 0;
+
+        if (Integer.parseInt(n) < 10) {
+            tempA = Integer.toString(Integer.parseInt(n) * 2);
+            cnt++;
+        }else {
+            String a = String.valueOf(n.charAt(0));
+            String b = String.valueOf(n.charAt(1));
+            String c = Integer.toString(Integer.parseInt(a)+Integer.parseInt(b));
+            tempA = b+ c.charAt((c.length()-1));
+            cnt++;
+        }
+
+        while (!(n.equals(tempA))) {
+            String a = String.valueOf(tempA.charAt(0));
+            String b = String.valueOf(tempA.charAt(1));
+            String c = Integer.toString(Integer.parseInt(a)+Integer.parseInt(b));
+            tempA = b+ c.charAt((c.length()-1));
+            cnt++;
+        }
+
+        System.out.println(cnt);
+    }
+
+
 
 
 
