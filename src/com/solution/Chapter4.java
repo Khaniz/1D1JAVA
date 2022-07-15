@@ -3,10 +3,7 @@ package com.solution;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Chapter4 {
@@ -39,5 +36,51 @@ public class Chapter4 {
 
         System.out.println(value);
         System.out.println(numbers.indexOf(Integer.parseInt(String.valueOf(value)))+1);
+    }
+
+    public void no2577() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int a = 0;
+        int b = 0;
+        int c = 0;
+
+        while(true){
+            a = Integer.parseInt(br.readLine());
+            if(a>=100 & a<1000){
+                break;
+            }
+        }
+        while(true){
+            b = Integer.parseInt(br.readLine());
+            if(b>=100 & b<1000){
+                break;
+            }
+        }
+        while(true){
+            c = Integer.parseInt(br.readLine());
+            if(c>=100 & c<1000){
+                break;
+            }
+        }
+
+        br.close();
+        int result = a*b*c;
+
+        List<String> resultList = new ArrayList<>();
+        for(int i = 0; i<Integer.toString(result).length(); i++){
+            resultList.add(String.valueOf(Integer.toString(result).charAt(i)));
+        }
+
+        System.out.println(Collections.frequency(resultList, "0"));
+        System.out.println(Collections.frequency(resultList, "1"));
+        System.out.println(Collections.frequency(resultList, "2"));
+        System.out.println(Collections.frequency(resultList, "3"));
+        System.out.println(Collections.frequency(resultList, "4"));
+        System.out.println(Collections.frequency(resultList, "5"));
+        System.out.println(Collections.frequency(resultList, "6"));
+        System.out.println(Collections.frequency(resultList, "7"));
+        System.out.println(Collections.frequency(resultList, "8"));
+        System.out.println(Collections.frequency(resultList, "9"));
     }
 }
