@@ -83,4 +83,51 @@ public class Chapter4 {
         System.out.println(Collections.frequency(resultList, "8"));
         System.out.println(Collections.frequency(resultList, "9"));
     }
+
+    public void no1546() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int a = 0;
+        List<Integer> resultList = new ArrayList<>();
+
+        int subjectCnt = 0;
+        while(true){
+            subjectCnt = Integer.parseInt(br.readLine());
+            if(subjectCnt>0 & subjectCnt<=1000){
+                break;
+            }else {
+                System.out.println("적절한 과목 숫자를 입력해주세요 (1000개 이하)");
+            }
+        }
+
+        StringTokenizer tokenizer = new StringTokenizer(br.readLine());
+        for(int i = 0; i<subjectCnt; i++){
+            while(true){
+                a = Integer.parseInt(tokenizer.nextToken());
+
+                if(a>=0 & a<=100){
+                    resultList.add(a);
+                    break;
+                }else{
+                    System.out.println("범위를 벗어난 입력값 입니다. (범위 : 0~100)");
+                }
+            }
+        }
+        br.close();
+
+        int max = resultList.get(0);
+        for(int i=0; i< resultList.size(); i++){
+            if(resultList.get(i) > max){
+                max = resultList.get(i);
+            }
+        }
+
+
+        double avg = 0L;
+        for(int score : resultList){
+            avg += (score/(double)max)*100;
+        }
+        System.out.println(avg/subjectCnt);
+
+    }
 }
