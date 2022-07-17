@@ -1,8 +1,6 @@
 package com.solution;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -129,5 +127,115 @@ public class Chapter4 {
         }
         System.out.println(avg/subjectCnt);
 
+    }
+
+    public void no8958() throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int testCnt = 0;
+        while(true){
+            testCnt = Integer.parseInt(br.readLine());
+            if(testCnt>0 & testCnt<=1000){
+                break;
+            }else {
+                System.out.println("적절한 테스트 횟수를 입력해주세요 (1000번 이하)");
+            }
+        }
+
+
+        for(int i = 0; i<testCnt; i++){
+            while(true){
+                int result = 0;
+                String a = br.readLine();
+                if(a.length()>=0 & a.length()<=100){
+                    int temp = 0;
+                    for(int j=0; j<a.length(); j++){
+                        if(j>0){
+                            if("O".equals(String.valueOf(a.charAt(j)))){
+                                if("O".equals(String.valueOf(a.charAt(j-1)))){
+                                    temp++;
+                                    result += temp;
+                                }else {
+                                    temp = 0;
+                                    temp++;
+                                    result += temp;
+                                }
+
+                            }
+                        }else if(j == 0) {
+                            if("O".equals(String.valueOf(a.charAt(j)))){
+                                temp ++;
+                                result += temp;
+                            }
+                        }
+                    }
+
+                    bw.write(result+"\n");
+                    break;
+                }else{
+                    System.out.println("범위를 벗어난 입력값 입니다. (범위 : 0~100)");
+                }
+            }
+
+        }
+        br.close();
+        bw.flush();
+        bw.close();
+    }
+
+    public void no4344() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int testCnt = 0;
+        while(true){
+            testCnt = Integer.parseInt(br.readLine());
+            if(testCnt>0 & testCnt<=1000){
+                break;
+            }else {
+                System.out.println("적절한 테스트 횟수를 입력해주세요 (1000번 이하)");
+            }
+        }
+
+
+        for(int i = 0; i<testCnt; i++){
+            while(true){
+                int result = 0;
+                String a = br.readLine();
+                StringTokenizer tokenizer = new StringTokenizer(a);
+                int studentCnt = Integer.parseInt(tokenizer.nextToken());
+                if(studentCnt>=1 & studentCnt<=1000){
+                    List<Integer> scores = new ArrayList<>();
+                    int temp = 0;
+                    for(int j=0; j<studentCnt; j++){
+                        scores.add(Integer.parseInt(tokenizer.nextToken()));
+                    }
+                    for(int score : scores){
+                        temp += score;
+                    }
+                    double avg = temp/(double)studentCnt;
+
+                    int aboveAvgCnt = 0;
+                    for(int score : scores){
+                        if(score>avg){
+                            aboveAvgCnt++;
+                        }
+                    }
+                    double answer = aboveAvgCnt/(double)studentCnt;
+                    String asw = String.format("%.3f", answer*100);
+
+                    bw.write(asw+"%"+"\n");
+                    break;
+                }else{
+                    System.out.println("범위를 벗어난 입력값 입니다. (범위 : 0~100)");
+                }
+            }
+
+        }
+        br.close();
+        bw.flush();
+        bw.close();
     }
 }
