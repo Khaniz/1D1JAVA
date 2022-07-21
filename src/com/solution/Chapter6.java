@@ -16,4 +16,20 @@ public class Chapter6 {
         System.out.println((int)n.charAt(0));
     }
 
+    public void no11720() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        String n = br.readLine();
+        String numbers = br.readLine();
+        br.close();
+
+        int result = 0;
+        char[] numberList = numbers.toCharArray();
+        for(char no : numberList){
+            result += Integer.parseInt(String.valueOf(no));
+        }
+
+        System.out.println(result);
+    }
+
 }
