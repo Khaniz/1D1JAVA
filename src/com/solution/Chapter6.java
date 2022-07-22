@@ -32,4 +32,23 @@ public class Chapter6 {
         System.out.println(result);
     }
 
+    public void no10809() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        String n = br.readLine();
+        br.close();
+
+        char[] word = n.toCharArray();
+
+        for(int i=0; i<26; i++){
+            char alpha = (char)(i+65);
+            for(char ch : word){
+            }
+
+        }
+        System.out.printf(" ");
+
+        System.out.println(" ");
+    }
+
 }
