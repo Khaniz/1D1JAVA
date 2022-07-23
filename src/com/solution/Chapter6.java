@@ -1,8 +1,7 @@
 package com.solution;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.util.ArrayList;
 
 public class Chapter6 {
 
@@ -34,21 +33,32 @@ public class Chapter6 {
 
     public void no10809() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         String n = br.readLine();
         br.close();
 
         char[] word = n.toCharArray();
-
+        ArrayList<Character> alphabet = new ArrayList<>();
         for(int i=0; i<26; i++){
-            char alpha = (char)(i+65);
-            for(char ch : word){
-            }
-
+            alphabet.add((char)(i+97));
         }
-        System.out.printf(" ");
+        for(int i = 0; i<alphabet.size(); i++){
+            boolean isExist = false;
+            for(int l = 0; l< word.length; l++){
+                if(alphabet.get(i) == word[l]){
+                    bw.write(l+" ");
+                    isExist = true;
+                    break;
+                }
+            }
+            if(!isExist){
+                bw.write(-1+" ");
+            }
+        }
 
-        System.out.println(" ");
+
+        bw.flush();
+        bw.close();
     }
 
 }
