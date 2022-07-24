@@ -2,6 +2,7 @@ package com.solution;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class Chapter6 {
 
@@ -56,6 +57,31 @@ public class Chapter6 {
             }
         }
 
+
+        bw.flush();
+        bw.close();
+    }
+
+    public void no2675() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int t = Integer.parseInt(br.readLine());
+
+        for(int l = 0; l<t; l++){
+            String n = br.readLine();
+            StringTokenizer tokenizer = new StringTokenizer(n);
+            int count = Integer.parseInt(tokenizer.nextToken());
+            String target = tokenizer.nextToken();
+
+            char[] desolvedTarget = target.toCharArray();
+            for(char unit : desolvedTarget){
+                for(int i = 0; i<count; i++){
+                    bw.write(unit);
+                }
+            }
+            bw.write("\n");
+        }
+        br.close();
 
         bw.flush();
         bw.close();
