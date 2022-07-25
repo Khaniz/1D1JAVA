@@ -2,6 +2,7 @@ package com.solution;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class Chapter6 {
@@ -85,6 +86,32 @@ public class Chapter6 {
 
         bw.flush();
         bw.close();
+    }
+
+    public void no1157(){
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.next();
+
+        char[] spells = input.toCharArray();
+        String alphabet = "";
+        int sur = 0;
+        for(char spell : spells){
+            int pre = 0;
+            for(char sp : spells){
+                if(String.valueOf(spell).equalsIgnoreCase(String.valueOf(sp))){
+                    pre++;
+                }
+            }
+
+            if(pre > 0 && sur < pre){
+                sur = pre;
+                alphabet = String.valueOf(spell);
+            }else if(sur == pre && !String.valueOf(spell).equalsIgnoreCase(alphabet)){
+                alphabet = "?";
+            }
+
+        }
+        System.out.println(alphabet.toUpperCase());
     }
 
 }
