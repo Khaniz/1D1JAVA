@@ -114,4 +114,21 @@ public class Chapter6 {
         System.out.println(alphabet.toUpperCase());
     }
 
+    public void no1152() throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        br.close();
+        System.out.print(st.countTokens());
+
+        // 상단 내용만 정답으로 출력되는데, 하단의 내용이 정답이 될수 있는 이유를
+        // 알아내지 못했음.
+
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        String input = br.readLine();
+//        br.close();
+//
+//        System.out.print(input.strip().split("\\s+").length);
+    }
+
 }
