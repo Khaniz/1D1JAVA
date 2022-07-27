@@ -131,4 +131,100 @@ public class Chapter6 {
 //        System.out.print(input.strip().split("\\s+").length);
     }
 
+    public void no2908() throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String input = br.readLine();
+        br.close();
+
+        StringTokenizer st = new StringTokenizer(input);
+        String firstNo = st.nextToken();
+        String secondNo = st.nextToken();
+
+        char[] firstReverseTool = new char[firstNo.toCharArray().length];
+        for(int i = 0; i< firstNo.toCharArray().length; i++){
+            firstReverseTool[i]= firstNo.charAt(firstNo.toCharArray().length-1 - i);
+        }
+
+        char[] secondReverseTool = new char[secondNo.toCharArray().length];
+        for(int i = 0; i< secondNo.toCharArray().length; i++){
+            secondReverseTool[i]= secondNo.charAt(secondNo.toCharArray().length-1 - i);
+        }
+
+        if(Integer.parseInt(String.valueOf(firstReverseTool)) > Integer.parseInt(String.valueOf(secondReverseTool))){
+            System.out.println(firstReverseTool);
+        }else {
+            System.out.println(secondReverseTool);
+        }
+
+    }
+
+    public void no5622() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String input = br.readLine();
+        br.close();
+
+        //기준정보 : 1을 누르는데 2초 걸림.
+        //2~9까지만 할당된 알파벳이 있음
+        int required = 0;
+        for(int i=0; i<input.length(); i++){
+            switch(input.charAt(i)) {
+                case 'A':
+                case 'B':
+                case 'C':
+                    required += 3;
+                    break;
+                case 'D':
+                case 'E':
+                case 'F':
+                    required += 4;
+                    break;
+                case 'G':
+                case 'H':
+                case 'I':
+                    required += 5;
+                    break;
+                case 'J':
+                case 'K':
+                case 'L':
+                    required += 6;
+                    break;
+                case 'M':
+                case 'N':
+                case 'O':
+                    required += 7;
+                    break;
+                case 'P':
+                case 'Q':
+                case 'R':
+                case 'S':
+                    required += 8;
+                    break;
+                case 'T':
+                case 'U':
+                case 'V':
+                    required += 9;
+                    break;
+                case 'W':
+                case 'X':
+                case 'Y':
+                case 'Z':
+                    required += 10;
+                    break;
+                default:
+                    required += 2;
+                    break;
+            }
+        }
+        System.out.println(required);
+    }
+
+    public void no2941(){
+
+    }
+
+    public void no1316(){
+
+    }
+
 }
