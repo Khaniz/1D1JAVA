@@ -219,8 +219,64 @@ public class Chapter6 {
         System.out.println(required);
     }
 
-    public void no2941(){
+    public void no2941() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String input = br.readLine();
+        br.close();
 
+        //기준정보 :
+        //c=
+        //c-
+        //dz=
+        //d-
+        //lj
+        //nj
+        //s=
+        //z=
+        //아이디어 1 : 해당 첫글자에서 뒷글자를 확인하는 분기를 태우는 방법
+        //배열 각 글자 체크해서 분기 태우자
+        //뒷글자가 기호인지 확인 d,l,n은 뒷글자가 z,j 확인
+
+        int required = 0;
+        int leftOver = input.length();
+        char[] spells = input.toCharArray();
+        for(int i =1; i<spells.length; i++){
+
+            String pre = String.valueOf(spells[i-1]);
+            switch (spells[i]){
+                case '=' :
+                    if("c".equals(pre) || "s".equals(pre)){
+                        required++;
+                        leftOver-=2;
+                    }else if("z".equals(pre) && i>=2){
+                        if("d".equals(String.valueOf(spells[i-2]))){
+                            required++;
+                            leftOver-=3;
+                        }else {
+                            required++;
+                            leftOver-=2;
+                        }
+                    }else if("z".equals(pre) && i<2){
+                        required++;
+                        leftOver-=2;
+                    }
+                    break;
+                case '-' :
+                    if("c".equals(pre) || "d".equals(pre)){
+                        required++;
+                        leftOver-=2;
+                    }
+                    break;
+                case 'j' :
+                    if("l".equals(pre) || "n".equals(pre)){
+                        required++;
+                        leftOver-=2;
+                    }
+                    break;
+            }
+        }
+
+        System.out.println(required+leftOver);
     }
 
     public void no1316(){
