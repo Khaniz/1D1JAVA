@@ -1,9 +1,7 @@
 package com.solution;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Chapter6 {
 
@@ -279,8 +277,40 @@ public class Chapter6 {
         System.out.println(required+leftOver);
     }
 
-    public void no1316(){
+    public void no1316() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String input = br.readLine();
+        int series = Integer.parseInt(input);
+        for(int i = 0; i< Integer.parseInt(input); i++){
+            String word = br.readLine();
+            //지나간 이력을 알고 있어야 하고,
+            Map<Character, Boolean> history = new HashMap<>();
+            //직전 숫자와 현재를 비교하면
+            int temp = 0;
+            for(int j = 0; j< word.length(); j++){
+                if(j>=1){
+                    if(history.get(word.charAt(j)) == null){
+                        history.put(word.charAt(j), true);
+                    }else if(history.get(word.charAt(j)) && (word.charAt(j) == word.charAt(j-1))){
 
+                    }else{
+                        temp++;
+                    }
+                }else{
+                    history.put(word.charAt(j), true);
+                }
+            }
+            if(temp > 0){
+                series -= 1;
+            }
+            //단어가 연속인지 아닌지 알수 있음.
+
+
+        }
+
+        br.close();
+
+        System.out.println(series);
     }
 
 }
