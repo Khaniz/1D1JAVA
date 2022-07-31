@@ -32,8 +32,24 @@ public class Chapter7 {
 
         System.out.println(result);
     }
-    public void no2292(){
+    public void no2292() throws IOException {
         //벌집
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int input = Integer.parseInt(br.readLine());
+
+        br.close();
+
+        for(int i = 0; i< 333333; i++){
+            if( input == 1){
+                System.out.println(1);
+                break;
+            }
+            else if(3*i*(i+1)+1>=input){
+                System.out.println(i+1);
+                break;
+            }
+
+        }
     }
     public void no1193(){
         //분수찾기
