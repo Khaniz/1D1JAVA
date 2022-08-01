@@ -51,8 +51,44 @@ public class Chapter7 {
 
         }
     }
-    public void no1193(){
+    public void no1193() throws IOException {
         //분수찾기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int input = Integer.parseInt(br.readLine());
+
+        br.close();
+
+        int leftOver = 0;
+        int quota = 0;
+
+        if(input <= 3){
+
+
+            switch (input){
+                case 1:
+                    System.out.println("1/1");
+                    break;
+                case 2:
+                    System.out.println("1/2");
+                    break;
+                case 3:
+                    System.out.println("2/1");
+                    break;
+            }
+        }else{
+            for(int i = 2; i< 333333; i++){
+                if( i * (i-1) < 2 * input && 2 * input <= i * (i+1) ){
+                    leftOver = input-(i*(i-1))/2;
+                    quota = i;
+                    break;
+                }
+            }
+            if(quota % 2 == 1){
+                System.out.println((quota - leftOver+1) +"/"+ leftOver);
+            }else{
+                System.out.println(leftOver + "/" + (quota-leftOver+1));
+            }
+        }
     }
     public void no2869(){
         //달팽이는 올라가고 싶다
