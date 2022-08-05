@@ -152,13 +152,47 @@ public class Chapter7 {
         bw.flush();
         bw.close();
     }
-    public void no2775(){
+    public void no2775() throws IOException {
         //부녀회장이 될테야
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int cnt = Integer.parseInt(br.readLine());
+
+        for(int i = 0; i< cnt; i++){
+            int floor = Integer.parseInt(br.readLine());
+            int roomNo = Integer.parseInt(br.readLine());
+
+            long tempPersons = 1;
+            for(int j = 1; j<=floor; j++){
+                tempPersons = firstRoomPersons(tempPersons, roomNo);
+            }
+            String persons = String.valueOf(tempPersons);
+            if(i==(cnt-1)){
+                bw.write(persons);
+            }else {
+                bw.write(persons+"\n");
+            }
+        }
+        br.close();
+
+        bw.flush();
+        bw.close();
     }
     public void no2839(){
         //설탕 배달
     }
     public void no10757(){
         //큰 수 A+B
+    }
+
+    private static long firstRoomPersons(long tempPersons, int roomNo){
+        long persons = 0;
+        if(tempPersons == 1){
+            persons = (1+roomNo)*roomNo/ 2;
+        }else{
+            persons = (1+tempPersons)*roomNo/ 2;
+        }
+
+        return persons;
     }
 }
