@@ -178,8 +178,28 @@ public class Chapter7 {
         bw.flush();
         bw.close();
     }
-    public void no2839(){
+    public void no2839() throws IOException {
         //설탕 배달
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(br.readLine());
+        br.close();
+
+
+        if(N%5 == 3 || N%5 == 0 || N%3 == 0){
+
+            int kg5 = N/5;
+            int kg3 = (N%5) /3;
+            if(kg5 * 5 + kg3 * 3 == N){
+                System.out.println(kg5+kg3);
+            }else{
+                int onlyKg3 = N/3;
+                System.out.println(onlyKg3);
+            }
+
+        }else{
+            System.out.println(-1);
+        }
     }
     public void no10757(){
         //큰 수 A+B
