@@ -185,20 +185,26 @@ public class Chapter7 {
         int N = Integer.parseInt(br.readLine());
         br.close();
 
+        if(N%5 == 0){
+            System.out.println(N/5);
+        }else{
+            int answer = -1;
 
-        if(N%5 == 3 || N%5 == 0 || N%3 == 0){
-
-            int kg5 = N/5;
-            int kg3 = (N%5) /3;
-            if(kg5 * 5 + kg3 * 3 == N){
-                System.out.println(kg5+kg3);
-            }else{
-                int onlyKg3 = N/3;
-                System.out.println(onlyKg3);
+            for(int i = 0; i<3; i++){
+                if(N/5 >= i && (N%5+ 5*i)%3 == 0){
+                    answer = (N/5-i + (N-(N/5-i)*5)/3);
+                    break;
+                }else if((N/5 == 0 && (N%5)%3 ==3)){
+                    answer = N/3;
+                    break;
+                }else if( N/5 >= i && (N/5-i + (N-(N/5-i)*5)/3) == 0){
+                    answer = (N/5-i + (N-(N/5-i)*5)/3);
+                    break;
+                }
             }
 
-        }else{
-            System.out.println(-1);
+
+            System.out.println(answer);
         }
     }
     public void no10757(){
