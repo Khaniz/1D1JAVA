@@ -1,6 +1,7 @@
 package com.solution;
 
 import java.io.*;
+import java.math.BigInteger;
 import java.util.StringTokenizer;
 
 public class Chapter7 {
@@ -207,8 +208,18 @@ public class Chapter7 {
             System.out.println(answer);
         }
     }
-    public void no10757(){
+    public void no10757() throws IOException {
         //큰 수 A+B
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        br.close();
+
+        BigInteger A = new BigInteger(st.nextToken());
+        BigInteger B = new BigInteger(st.nextToken());
+
+        BigInteger result = A.add(B);
+        System.out.println(result);
     }
 
     private static long firstRoomPersons(long tempPersons, int roomNo){
