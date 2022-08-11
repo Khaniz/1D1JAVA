@@ -3,6 +3,7 @@ package com.solution;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class Chapter8 {
@@ -25,8 +26,31 @@ public class Chapter8 {
         System.out.println(primeNumber);
     }
 
-    public void no2581() {
+    public void no2581() throws IOException {
         //소수
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int M = Integer.parseInt(br.readLine());
+        int N = Integer.parseInt(br.readLine());
+
+        ArrayList<Integer> number = new ArrayList<>();
+        for(int i = M; i<=N; i++){
+            if(isPrime(i)){
+                number.add(i);
+            }
+        }
+
+        br.close();
+        if(number.size() == 0){
+            System.out.println(-1);
+        }else{
+            int sum = 0;
+            for(int target : number){
+                sum += target;
+            }
+            System.out.println(sum);
+            System.out.println(number.get(0));
+        }
+
     }
 
     public void no11653() {
