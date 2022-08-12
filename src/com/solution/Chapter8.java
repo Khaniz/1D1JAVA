@@ -53,8 +53,27 @@ public class Chapter8 {
 
     }
 
-    public void no11653() {
+    public void no11653() throws IOException {
         //소인수분해
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
+
+        ArrayList<Integer> number = new ArrayList<>();
+        for(int i = 1; i<=N; i++){
+            if(isPrime(i)){
+                number.add(i);
+            }
+        }
+
+        br.close();
+
+        for(int target : number){
+            while(N%target == 0){
+                N = N/target;
+                System.out.println(target);
+            }
+        }
+
     }
 
     public void no1929() {
