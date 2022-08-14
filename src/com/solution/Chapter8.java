@@ -1,8 +1,6 @@
 package com.solution;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
@@ -76,8 +74,25 @@ public class Chapter8 {
 
     }
 
-    public void no1929() {
+    public void no1929() throws IOException {
         //소수 구하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
+
+        br.close();
+
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        for(int i = N; i<=M; i++){
+            if(isPrime(i)){
+                bw.write(i+"\n");
+            }
+
+        }
+        bw.flush();
+        bw.close();
     }
 
     public void no4948() {
