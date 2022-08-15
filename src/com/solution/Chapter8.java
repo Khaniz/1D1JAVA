@@ -95,8 +95,30 @@ public class Chapter8 {
         bw.close();
     }
 
-    public void no4948() {
+    public void no4948() throws IOException {
         //베르트랑 공준
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        ArrayList<Integer> number = new ArrayList<>();
+
+        while(true){
+            int target = Integer.parseInt(br.readLine());
+            if(target == 0){
+                for(int unit : number){
+                    System.out.println(unit);
+                }
+                break;
+            }else{
+                int cnt = 0;
+                for(int i = target+1; i<=target*2; i++){
+                    if(isPrime(i)){
+                        cnt++;
+                    }
+                }
+                number.add(cnt);
+            }
+
+        }
     }
 
     public void no920() {
