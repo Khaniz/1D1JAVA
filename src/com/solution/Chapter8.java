@@ -121,8 +121,26 @@ public class Chapter8 {
         }
     }
 
-    public void no920() {
+    public void no920() throws IOException {
         //골드바흐의 추측
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        for(int i = 0; i < Integer.parseInt(br.readLine()); i++){
+            ArrayList<Integer> numbers = new ArrayList<>();
+            int target = Integer.parseInt(br.readLine());
+            for(i=4; i<=target; i++){
+                if(isPrime(i)){
+                    numbers.add(i);
+                };
+            }
+
+
+
+        }
+        //소수들을 배열에 담는다.
+        //배열에 담긴 숫자들로 순서쌍을 만들어 n값을 만든다.
+        //작은수 기준?
+
     }
 
     // 소수 판별 메소드
