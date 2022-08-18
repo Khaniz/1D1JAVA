@@ -124,23 +124,27 @@ public class Chapter8 {
     public void no920() throws IOException {
         //골드바흐의 추측
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        for(int i = 0; i < Integer.parseInt(br.readLine()); i++){
-            ArrayList<Integer> numbers = new ArrayList<>();
-            int target = Integer.parseInt(br.readLine());
-            for(i=4; i<=target; i++){
-                if(isPrime(i)){
-                    numbers.add(i);
-                };
+        int laps = Integer.parseInt(br.readLine());
+
+        for(int i=0; i<laps; i++){
+            int startNo = Integer.parseInt(br.readLine())/2;
+            int startToUp = startNo;
+            int startToDown = startNo;
+            while(true){
+                if(isPrime(startToUp) && isPrime(startToDown)){
+                    bw.write(startToDown+" "+startToUp+"\n");
+                    break;
+                }
+                startToUp++;
+                startToDown--;
             }
 
-
-
         }
-        //소수들을 배열에 담는다.
-        //배열에 담긴 숫자들로 순서쌍을 만들어 n값을 만든다.
-        //작은수 기준?
 
+        bw.flush();
+        bw.close();
     }
 
     // 소수 판별 메소드
