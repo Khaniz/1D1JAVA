@@ -127,7 +127,7 @@ public class Chapter8 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int laps = Integer.parseInt(br.readLine());
-
+        //conflict what;;
         for(int i=0; i<laps; i++){
             int startNo = Integer.parseInt(br.readLine())/2;
             int startToUp = startNo;
